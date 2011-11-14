@@ -13,7 +13,9 @@ the New BSD License.  The exact license is contained in the file LICENSE.TXT
 included with this distribution.
 
 The Fabric Websocket Server makes use of the miksago node-websocket-server,
-found here: https://github.com/miksago/node-websocket-server
+found here: https://github.com/miksago/node-websocket-server, particularly
+a fork maintained by ragnis, found here:
+https://github.com/Ragnis/node-websocket-server.git
 
 Getting Started
 ---------------
