@@ -36,15 +36,8 @@ server.addListener('connection', function(conn){
     if(message.action == undefined || message.context == undefined)
       return;
     
-    // if we still don't have a context, this is an invalid request
-    if(message.context == undefined)
-    {
-      console.log('Invalid message:'+message);
-      return;
     // for get connections, return the connections on this context
-    } else if(message.action == 'getConnections') {
-      if(message.context == undefined)
-        return;
+    if(message.action == 'getConnections') {
       var data = {};
       for(var id in connections) {
         if(id == conn.id)
