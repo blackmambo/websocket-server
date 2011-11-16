@@ -56,8 +56,6 @@ server.addListener('connection', function(conn){
     // store the sourceID in the message
     message.sourceID = conn.id;
     
-    console.log('message from '+message.sourceID+' to '+message.targetID+', action: '+message.action);
-    
     // send this to either a specific target
     // or to all other clients on this context
     if(message.targetID == '*') {
@@ -75,9 +73,10 @@ server.addListener('connection', function(conn){
         connections[id].client.send(JSON.stringify(message));
       }
     } else if (connections[message.targetID]) {
-      if(connections[message.targetID].context == message.context)
+      if(connections[message.targetID].context == message.context) {
+        console.log('targeted message from '+message.sourceID+' to '+message.targetID+', action: '+message.action);
         connections[message.targetID].client.send(JSON.stringify(message));
-      else
+      } else
         console.log('Invalid message for connection '+message.targetId+'.');
     } else
       console.log('Invalid targetID '+message.targetId+'.');
