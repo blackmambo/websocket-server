@@ -74,7 +74,7 @@ server.addListener('connection', function(conn){
       }
     } else if (connections[message.targetID]) {
       if(connections[message.targetID].context == message.context) {
-        console.log('targeted message from '+message.sourceID+' to '+message.targetID+', action: '+message.action);
+        console.log('targeted message from '+message.sourceID+' to '+message.targetID+', action: '+message.action+', data: '+message.data);
         connections[message.targetID].client.send(JSON.stringify(message));
       } else
         console.log('Invalid message for connection '+message.targetId+'.');
